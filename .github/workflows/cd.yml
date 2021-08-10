@@ -55,8 +55,8 @@ jobs:
         working-directory: ./Hipster.App
         env:
           NODE_ENV: production
-          PUBLIC_URL: https://hipster-app.netlify.app
-          REACT_APP_API_URL: https://hipster-app.herokuapp.com
+          PUBLIC_URL: https://fwdays-hipster-app.netlify.app
+          REACT_APP_API_URL: https://fwdays-hipster-app.herokuapp.com/
 
       - name: Deploy
         run: netlify deploy --dir=build --prod
