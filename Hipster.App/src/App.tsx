@@ -1,20 +1,13 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import config from "./config";
-
-interface Book {
-  id: number;
-  title: string;
-  author: string;
-}
+import clients from "./api";
+import { Book } from "./api.generated";
 
 function BookList() {
   const [books, setBooks] = React.useState<Book[]>([]);
   React.useEffect(() => {
-    fetch(config.API_URL)
-      .then((response) => response.json())
-      .then((json) => setBooks(json));
+    clients.books.getAllBooks().then((books) => setBooks(books));
   }, []);
 
   if (!books) {

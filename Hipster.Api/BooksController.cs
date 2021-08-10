@@ -16,7 +16,7 @@ namespace Hipster.Api
 
         [HttpGet("/")]
         [ProducesResponseType(typeof(Book[]), 200)]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetAllBooks()
         {
             var books = await _db.Books.ToArrayAsync();
             return Ok(books);

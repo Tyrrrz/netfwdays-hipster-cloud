@@ -10,6 +10,7 @@
     "@types/node": "^12.20.19",
     "@types/react": "^17.0.16",
     "@types/react-dom": "^17.0.9",
+    "nswag": "^13.12.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -20,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "generate-client": "nswag run /Runtime:Net50"
   },
   "eslintConfig": {
     "extends": [
