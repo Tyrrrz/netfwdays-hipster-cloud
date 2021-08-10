@@ -20,7 +20,7 @@ namespace Hipster.Api
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>().UseHeroku();
+                    webBuilder.UseStartup<Startup>().UseHeroku().UseSentry();
                 });
     }
 }
