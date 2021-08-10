@@ -18,8 +18,6 @@ namespace Hipster.Api
         [ProducesResponseType(typeof(Book[]), 200)]
         public async Task<IActionResult> GetAllBooks()
         {
-            throw new System.Exception("oops");
-
             var books = await _db.Books.ToArrayAsync();
             return Ok(books);
         }
