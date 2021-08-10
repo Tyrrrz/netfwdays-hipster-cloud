@@ -2,23 +2,24 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import clients from "./api";
-import { Book } from "./api.generated";
+import { useQuery } from "react-query";
 
 function BookList() {
-  const [books, setBooks] = React.useState<Book[]>([]);
-  React.useEffect(() => {
-    clients.books.getAllBooks().then((books) => setBooks(books));
-  }, []);
+  const booksQuery = useQuery("all-books", () => clients.books.getAllBooks());
 
-  if (!books) {
+  if (booksQuery.isLoading) {
     return <div>Loading...</div>;
+  }
+
+  if (booksQuery.error) {
+    return <div>Error: {(booksQuery.error as {}).toString()}</div>;
   }
 
   return (
     <div>
       <h1>Books</h1>
 
-      {books.map((book) => (
+      {booksQuery.data!.map((book) => (
         <div key={book.id}>
           <h2>{book.title}</h2>
           <h3>{book.author}</h3>
